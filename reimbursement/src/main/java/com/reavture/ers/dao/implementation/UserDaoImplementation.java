@@ -142,4 +142,18 @@ public class UserDaoImplementation implements UserDaoRepository {
 		session.getTransaction().commit();
 		return list;
 	}
+	@Override
+	public int updateLogin(String email, String pass) {
+		
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		Query q=session.getNamedQuery("updatelogin");
+		q.setParameter("email",email);  
+		q.setParameter("passwd", pass);
+		int status=q.executeUpdate();  
+		session.getTransaction().commit();
+		session.close();
+		System.out.println(status);
+		return status;
+	}
 }

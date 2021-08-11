@@ -24,8 +24,9 @@
             </ul>
         </div>
         <div class="main_container">
-           <div class="header"> Welcome Employee</div> 
+           <div class="header"> <h4 style="text-align:center;">Welcome Employee</h4> </div> 
            <div class="info">
+           		<h4 style="text-align: center;font-family: Fantasy;"> Request for Reimburse </h4><br/>
                <div>
 					<form class="row g-3" action="http://localhost:8080/reimbursement/ReimburseRequest" method="post">
 					  <div class="col-md-6">
@@ -48,15 +49,15 @@
 					  </div>
 					  <div class="col-12">
 					    <label for="inputAddress" class="form-label">Reason for Reimbursement</label>
-					    <input type="text" class="form-control" name="reason" placeholder="Enter the Reason for Reimburse">
+					    <input type="text" class="form-control" name="reason" placeholder="Enter the Reason for Reimburse" required>
 					  </div>
 					  <div class="col-md-6">
 					    <label for="inputCity" class="form-label">Purchased Date</label>
-					    <input type="date" class="form-control" name="date" placeholder="Enter the purchase date in DD-MM-YYYY">
+					    <input type="date" class="form-control" name="date" placeholder="Enter the purchase date in DD-MM-YYYY" required>
 					  </div>
 					  <div class="col-sm">
 					    <label for="inputZip" class="form-label">Amount</label>
-					    <input type="text" class="form-control" name="amount" placeholder="Enter purchased amount">
+					    <input type="text" class="form-control" name="amount" placeholder="Enter purchased amount" pattern="[0-9]{1,}.[0-9]{0,}"required>
 					  </div>
 					  <div class="col-12">
 					    <button type="submit" class="btn btn-primary" id="submit">Submit</button>

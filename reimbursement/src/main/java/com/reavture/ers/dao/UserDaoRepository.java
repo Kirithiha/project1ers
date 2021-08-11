@@ -13,5 +13,6 @@ public interface UserDaoRepository {
 	public int updateUser(User u);
 	public int deleteUser(String email);
 	public List<UserEntity>  getAllUser();
+	public int updateLogin(String email, String pass);
 }
 

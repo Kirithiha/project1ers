@@ -45,4 +45,10 @@ public class UserServiceImplementation implements UserServiceRepository {
 		return u_impl.getAllUser();
 	}
 
+	@Override
+	public int updateLogin(String email, String pass) {
+		
+		return u_impl.updateLogin(email, pass);
+	}
+
 }

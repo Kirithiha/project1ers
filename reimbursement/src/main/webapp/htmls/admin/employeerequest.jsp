@@ -23,7 +23,7 @@
             </ul>
         </div>
         <div class="main_container">
-           <div class="header"> Welcome Admin</div> 
+           <div class="header"><h4 style="text-align:center;">Welcome Admin</h4></div> 
            <div class="info">
                <div>
                    <form action="viewemployeerequest.jsp">

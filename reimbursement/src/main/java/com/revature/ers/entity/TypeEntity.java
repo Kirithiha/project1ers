@@ -1,5 +1,6 @@
 package com.revature.ers.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 
@@ -17,6 +18,7 @@ import javax.persistence.Table;
 public class TypeEntity {
 
 	@Id
+	@Column(nullable=false)
 	private String name;
 
 	public String getName() {

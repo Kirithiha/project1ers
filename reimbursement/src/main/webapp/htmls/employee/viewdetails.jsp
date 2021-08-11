@@ -24,8 +24,9 @@
             </ul>
         </div>
         <div class="main_container">
-           <div class="header"> Welcome Employee</div> 
+           <div class="header"> <h4 style="text-align:center;">Welcome Employee</h4> </div> 
            <div class="info">
+           		<h4 style="text-align: center;font-family: Fantasy;"> Your Details </h4><br/>
                <div>
 					<form class="row g-3">
                    			<%
@@ -62,7 +63,7 @@
 							<br/>
 							<div class="col-md-8">
 							    <label class="form-label">Account Number</label>
-							    <input type="text" class="form-control" name="act" value=<%=u.getAccountNumber() %> disabled readonly>
+							    <input type="text" class="form-control" name="act" value='<%=u.getAccountNumber() %>' disabled readonly>
 							</div>
 				  			<div class="col-md-6">
 							    <label class="form-label">Branch Name</label>

@@ -22,7 +22,7 @@
             </ul>
         </div>
         <div class="main_container">
-           <div class="header"> Welcome Admin</div> 
+           <div class="header"><h4 style="text-align:center;">Welcome Admin</h4></div> 
            <div class="info">
                <div>
                		<%
@@ -53,7 +53,7 @@
 					  </div>
 					  <div class="col-12">
 					    <label class="form-label">Reason for Reimbursement</label>
-					    <input type="text" class="form-control" name="reason" value=<%=r.getReason() %>>
+					    <input type="text" class="form-control" name="reason" value='<%=r.getReason() %>'>
 					  </div>
 					  <div class="col-md-6">
 					    <label for="inputCity" class="form-label">Purchased Date</label>

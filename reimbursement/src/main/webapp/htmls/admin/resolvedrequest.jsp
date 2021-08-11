@@ -22,7 +22,7 @@
             </ul>
         </div>
         <div class="main_container">
-           <div class="header"> Welcome Employee</div> 
+           <div class="header"> <h4 style="text-align:center;">Welcome Admin</h4></div> 
            <div class="info">
                <div>
                	<h4 style="text-align: center;font-family: Fantasy;"> All Resolved Resimbursed Request </h4><br/>

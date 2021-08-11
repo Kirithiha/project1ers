@@ -1,22 +1,34 @@
 package com.revature.ers.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedNativeQuery;
+import javax.persistence.NamedNativeQueries;
 import javax.persistence.Table;
 
-@NamedNativeQuery(
-		name = "logindetails",
-		query = "call logindetails(:email)",
-		resultClass = LoginEntity.class
-)
+@NamedNativeQueries({
+	@NamedNativeQuery(
+			name = "logindetails",
+			query = "call logindetails(:email)",
+			resultClass = LoginEntity.class
+	),
+	@NamedNativeQuery(
+			name = "updatelogin",
+			query = "call updatelogin(:email, :passwd)",
+			resultClass = LoginEntity.class
+	)
+})
 @Entity
 @Table(name="Login")
 public class LoginEntity {
 	
 	@Id 
 	private String emailid;
+	
+	@Column(nullable=false)
 	private String password;
+	
 	private String role;
 	
 	public String getEmailid() {

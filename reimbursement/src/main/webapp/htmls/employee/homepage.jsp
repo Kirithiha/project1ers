@@ -25,7 +25,7 @@
             </ul>
         </div>
         <div class="main_container">
-           <div class="header"> Welcome Employee</div> 
+           <div class="header"> <h4 style="text-align:center;">Welcome Employee</h4> </div> 
            <div class="info">
                <div>
                    <%=username %>
