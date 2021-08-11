@@ -27,46 +27,30 @@
            <div class="header"> Welcome Employee</div> 
            <div class="info">
                <div>
-                   <form>
-                   		<table class="table">
+					<form class="row g-3">
                    			<%
 						  		UserDaoImplementation ud = new UserDaoImplementation();
 						    	List<UserEntity> l = ud.getUser(username);
 						    	for(UserEntity u : l) {
 				  			%>
-				  			<tr>
-						   		<td>
-								<label for="usr" class="label">User Name</label> 
-								</td>
-								<td>
-								<input id="usr" type="text" class="input" name="usr"  value=<%=u.getUserName() %> disabled readonly> 
-								</td>
-						   	</tr>
-				  			<tr>
-								<td>
-								<label for="user" class="label">EmailId</label> 
-								</td>
-								<td>
-								<input id="user" type="email" name ="emailid" class="input" value=<%=u.getEmailid() %> disabled readonly>
-								</td>
-							</tr>
-				  			<tr>
-								<td>
-							    <label for="phn" class="label">Phone Number</label> 
-							    </td>
-							    <td>
-							    <input id="phn" type="text" name ="phn" class="input" value=<%=u.getPhoneNumber()%> disabled readonly>
-							    </td>
-							</tr>
+				  			<div class="col-md-6">
+							    <label class="form-label">User Name</label>
+							    <input type="text" class="form-control" name="username" value=<%=u.getUserName()%> disabled readonly>
+							</div>
+				  			<div class="col-md-6">
+							    <label class="form-label">Email Id</label>
+							    <input type="email" class="form-control" name="email" value=<%=u.getEmailid() %> disabled readonly>
+							</div>
+				  			<div class="col-md-4">
+							    <label class="form-label">Phone Number</label>
+							    <input type="text" class="form-control" name="phn" value=<%=u.getPhoneNumber() %> disabled readonly>
+							</div>
 				  			<%
 								List<DesignationEntity> dlist=SelectUtil.getDesignation();
 							 %>
-				  			<tr>
-								<td>
-								<label for="type" class="label">Designation</label>
-								</td>
-								<td>
-								<select class="input" id="type" name="Designation">
+							 <div class="col-md-6">
+							    <label class="form-label">Designation</label>
+							    <select class="form-control" name="Designation" disabled>
 									<option value=<%=u.getDesignation() %>><%= u.getDesignation() %></option>
 									<%
 										for(DesignationEntity t : dlist){
@@ -74,33 +58,20 @@
 									<option value=<%=t.getName() %>><%= t.getName()%></option>
 								   <% } %>
 								</select>
-								</td>
-							</tr>
-				  			<tr>
-								<td>
-						        <label for="acct" class="label">Account Number</label> 
-						        </td>
-						        <td>
-						        <input id="act" type="text" class="input" name="act"  value=<%=u.getAccountNumber() %> disabled readonly>
-						        </td> 
-						    </tr>
-				  			<tr>
-						 		<td>
-						        <label for="branch" class="label">Branch Name</label> 
-						        </td>
-						        <td>
-						        <input id="branch" type="text" class="input" name="branch" value=<%= u.getBranchName()%> disabled readonly> 
-						        </td>
-						   </tr>
-				  		   <tr>
-					 			<td>
-						        <label for="code" class="label">IFSC Code</label> 
-						        </td>
-						        <td>
-						        <input id="code" type="text" class="input" name="code" value=<%=u.getIfscCode() %> disabled readonly> 
-						        </td>
-					 	   </tr> 		
-                   		</table>
+							</div>
+							<br/>
+							<div class="col-md-8">
+							    <label class="form-label">Account Number</label>
+							    <input type="text" class="form-control" name="act" value=<%=u.getAccountNumber() %> disabled readonly>
+							</div>
+				  			<div class="col-md-6">
+							    <label class="form-label">Branch Name</label>
+							    <input type="text" class="form-control" name="branch" value=<%=u.getBranchName() %> disabled readonly>
+							</div>
+							<div class="col-md-6">
+							    <label class="form-label">IFSC Code</label>
+							    <input type="text" class="form-control" name="code" value=<%=u.getIfscCode() %> disabled readonly>
+							</div>	
                    		<div class="group">
 		                   	<a href='updatedetails.jsp' id="submit" class = "btn btn-primary">Update</a>
 			            </div>

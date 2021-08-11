@@ -25,7 +25,7 @@
            <div class="header"> Welcome Employee</div> 
            <div class="info">
                <div>
-               	<h4 style="text-align: center;font-family: Fantasy;"> All Resimbursed Request </h4><br/>
+               	<h4 style="text-align: center;font-family: Fantasy;"> All Resolved Resimbursed Request </h4><br/>
                    <table class="table" style="margin-left:6px">
 					  <%
 					  	
