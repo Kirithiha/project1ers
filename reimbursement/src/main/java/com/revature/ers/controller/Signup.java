@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.revature.ers.dto.User;
 import com.revature.ers.service.implementation.UserServiceImplementation;
 
@@ -15,6 +17,8 @@ import com.revature.ers.service.implementation.UserServiceImplementation;
  * Servlet implementation class Signup
  */
 public class Signup extends HttpServlet {
+	
+	Logger log = Logger.getLogger("Signup.class");
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -28,6 +32,7 @@ public class Signup extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		log.info("Inside SIGNUP SERVLET");
 		PrintWriter out = response.getWriter();
 		String email = request.getParameter("emailid");
 		String passwd = request.getParameter("passwdSignup");
@@ -58,7 +63,7 @@ public class Signup extends HttpServlet {
 			}
 			else if(result == 2 ) {
 				out.println("<script type=\"text/javascript\">");
-			    out.println("alert('Duplicate User Found');");
+			    out.println("alert('User Already Found');");
 			    out.println("location='http://localhost:8080/reimbursement/htmls/firstpage.jsp';");
 			    out.println("</script>");
 			}

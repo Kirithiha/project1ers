@@ -1,5 +1,6 @@
 package com.reavture.ers.dao.implementation;
 
+import org.apache.log4j.Logger;
 import org.hibernate.Session;
 
 
@@ -12,8 +13,13 @@ import com.revature.ers.util.HibernateUtil;
 
 public class AdminDaoImplementation implements AdminDaoRepository {
 
+	Logger log = Logger.getLogger("AdminDaoImplementation.class");
+	
+	// TO ADD TYPE.
 	@Override
 	public int addType(Type type) {
+		
+		log.info("Inside ADD TYPE DAO");
 		int flag=0;
 		try {	
 			Session session=HibernateUtil.getSessionFactory().openSession();
@@ -35,9 +41,11 @@ public class AdminDaoImplementation implements AdminDaoRepository {
 		return flag;
 	}
 
+	// TO ADD DESIGNATION.
 	@Override
 	public int addDesignation(Designation des) {
 		
+		log.info("Inside ADD DESIGNATION DAO");
 		int flag=0;
 		try {	
 			Session session=HibernateUtil.getSessionFactory().openSession();

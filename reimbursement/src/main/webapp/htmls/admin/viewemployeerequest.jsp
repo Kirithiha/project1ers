@@ -19,6 +19,8 @@
                 <li><a class="navbar-brand" href="employeerequest.jsp">View Employee Request</a></li>
                 <li><a class="navbar-brand" href="addType.html">Add Reimburse Type</a></li>
                 <li><a class="navbar-brand" href="addDesignation.html">Add Employee Designation</a></li>
+                <li><a class="navbar-brand" href="viewemployeedetails.jsp">View Employee Details</a></li>
+                <li><a class="navbar-brand" href="http://localhost:8080/reimbursement/Logout">Logout</a></li>
             </ul>
         </div>
         <div class="main_container">
@@ -31,7 +33,8 @@
 					  	ReimburseDaoImplementation re = new ReimburseDaoImplementation();
 					  	String email = request.getParameter("emailid");
 					  	List<ReimburseEntity> list = re.getReimburseEntity(email);
-					  %>	
+
+					  %>
 					  <thead>
 					    <tr>
 					      <th scope="col">Reimburse Type</th>

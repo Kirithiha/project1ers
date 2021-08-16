@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.revature.ers.dto.User;
 import com.revature.ers.service.implementation.UserServiceImplementation;
 
@@ -15,6 +17,8 @@ import com.revature.ers.service.implementation.UserServiceImplementation;
  * Servlet implementation class UpdateEmployee
  */
 public class UpdateEmployee extends HttpServlet {
+	
+	Logger log = Logger.getLogger("UpdateEmployee.class");
 	private static final long serialVersionUID = 1L;
        
     public UpdateEmployee() {
@@ -24,6 +28,7 @@ public class UpdateEmployee extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		log.info("Inside UPDATEMPLOYEE SERVLET");
 		PrintWriter out = response.getWriter();
 		String email = request.getParameter("emailid");
 		String designation = request.getParameter("Designation");

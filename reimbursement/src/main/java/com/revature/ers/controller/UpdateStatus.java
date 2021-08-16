@@ -8,12 +8,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.revature.ers.service.implementation.ReimburseServiceImplementation;
 
 /**
  * Servlet implementation class UpdateStatus
  */
 public class UpdateStatus extends HttpServlet {
+	
+	Logger log = Logger.getLogger("UpdateStatus.class");
 	private static final long serialVersionUID = 1L;
        
     public UpdateStatus() {
@@ -22,6 +26,7 @@ public class UpdateStatus extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		log.info("Inside UPDATESTATUS SERVLET");
 		PrintWriter out = response.getWriter();
 		String action = request.getParameter("action");
 		String email = request.getParameter("id");

@@ -34,7 +34,7 @@
 					    <input type="email" class="form-control" name="email" value=<%=username %> placeholder="Enter email id">
 					  </div>
 					  <div class="col-md-6">
-					    <label for="inputPassword4" class="form-label">Type of Reimbursement</label>
+					    <label  class="form-label">Type of Reimbursement</label>
 					    <select class="form-control" name="type">
 							<option>Default Value</option>
 							<%

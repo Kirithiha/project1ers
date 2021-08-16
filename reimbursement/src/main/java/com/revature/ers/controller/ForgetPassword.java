@@ -8,12 +8,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.revature.ers.service.implementation.UserServiceImplementation;
 
 /**
  * Servlet implementation class ForgetPassword
  */
 public class ForgetPassword extends HttpServlet {
+	Logger log = Logger.getLogger("ForgetPassword.class");
+	
 	private static final long serialVersionUID = 1L;
        
     public ForgetPassword() {
@@ -22,6 +26,7 @@ public class ForgetPassword extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		log.info("Inside FORGET PASSWORD SERVLET");
 		PrintWriter out = response.getWriter();
 		String email = request.getParameter("email");
 		String passwd = request.getParameter("passwd");

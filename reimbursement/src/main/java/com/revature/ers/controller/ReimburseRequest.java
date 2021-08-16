@@ -1,13 +1,15 @@
 package com.revature.ers.controller;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import org.apache.log4j.Logger;
 
 import com.revature.ers.dto.Reimburse;
 import com.revature.ers.service.implementation.ReimburseServiceImplementation;
@@ -16,6 +18,8 @@ import com.revature.ers.service.implementation.ReimburseServiceImplementation;
  * Servlet implementation class ReimburseRequest
  */
 public class ReimburseRequest extends HttpServlet {
+	
+	Logger log = Logger.getLogger("ReimburseRequest.class");
 	private static final long serialVersionUID = 1L;
        
     public ReimburseRequest() {
@@ -24,6 +28,7 @@ public class ReimburseRequest extends HttpServlet {
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		log.info("Inside REIMBURSEREQUEST SERVLET");
 		PrintWriter out = response.getWriter();
 		Reimburse re = new Reimburse();
 		String emailid = request.getParameter("email");

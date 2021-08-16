@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.revature.ers.dto.Type;
 import com.revature.ers.service.implementation.AdminServiceImplementation;
 
@@ -15,6 +17,9 @@ import com.revature.ers.service.implementation.AdminServiceImplementation;
  * Servlet implementation class AddType
  */
 public class AddType extends HttpServlet {
+	
+	Logger log = Logger.getLogger("AddType.class");
+	
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -27,6 +32,7 @@ public class AddType extends HttpServlet {
 	// TO ADD TYPE IN TYPE ENTITY.
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		log.info("Inside ADD TYPE SERVLET");
 		PrintWriter out = response.getWriter();
 		String name = request.getParameter("typename");
 		Type t = new Type();

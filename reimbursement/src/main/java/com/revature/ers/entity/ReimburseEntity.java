@@ -26,6 +26,11 @@ import javax.persistence.Table;
 			resultClass = ReimburseEntity.class
 	),
 	@NamedNativeQuery(
+			name = "pendingbyid",
+			query = "call pendingreimbursebyid(:email)",
+			resultClass = ReimburseEntity.class
+	),
+	@NamedNativeQuery(
 			name = "approve",
 			query = "call approvereimburse()",
 			resultClass = ReimburseEntity.class

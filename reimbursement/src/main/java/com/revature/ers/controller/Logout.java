@@ -9,10 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 /**
  * Servlet implementation class Logout
  */
 public class Logout extends HttpServlet {
+	Logger log = Logger.getLogger("Logout.class");
 	private static final long serialVersionUID = 1L;
        
     
@@ -23,8 +26,9 @@ public class Logout extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		log.info("Inside LOGUT SERVLET");
 		PrintWriter out = response.getWriter();
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(false);
 		session.invalidate();
 		out.println("<script type=\"text/javascript\">");
 	    out.println("alert('Logged out Successfully ... :)');");

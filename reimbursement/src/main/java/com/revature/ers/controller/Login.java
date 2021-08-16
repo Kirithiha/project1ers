@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 import com.revature.ers.dto.User;
 import com.revature.ers.service.implementation.UserServiceImplementation;
 
@@ -16,6 +18,8 @@ import com.revature.ers.service.implementation.UserServiceImplementation;
  * Servlet implementation class Login
  */
 public class Login extends HttpServlet {
+	
+	Logger log = Logger.getLogger("Login.class");
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -28,6 +32,7 @@ public class Login extends HttpServlet {
 	// TO CHECK FOR VALIDATION.
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		log.info("LOGIN SERVLET");
 		PrintWriter out = response.getWriter();
 		String email = request.getParameter("username");
 		String passwd = request.getParameter("passwordLogin");

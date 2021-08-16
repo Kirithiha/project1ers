@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
@@ -17,9 +18,13 @@ import com.revature.ers.util.HibernateUtil;
 
 public class UserDaoImplementation implements UserDaoRepository {
 
+	Logger log = Logger.getLogger("UserDaoImplementation.class");
+	
+	// TO ADD NEW EMPLOYEE.
 	@Override
 	public int addUser(User u) {
 		
+		log.info("Inside ADD USER DAO");
 		int flag=0;
 		try {	
 			Session session=HibernateUtil.getSessionFactory().openSession();
@@ -41,8 +46,10 @@ public class UserDaoImplementation implements UserDaoRepository {
 		
 		return flag;
 	}
+	// TO ADD LOGIN.
 	public int addLogin(String email, String passwd) {
 		
+		log.info("Inside ADD LOGIN DAO");
 		int flag=0;
 		try {
 			String login = null;
@@ -60,9 +67,12 @@ public class UserDaoImplementation implements UserDaoRepository {
 		}
 		return flag;
 	}
+	
+	// TO VALIDATE EMALID AND PASSWORD IN LOGIN ENTITY.
 	@Override
 	public int validation(String email, String passwd) {
 		
+		log.info("Inside VALIDATE LOGIN DAO");
 		int flag=0;
 		List<LoginEntity> list = new ArrayList<LoginEntity>();
 		Session session = HibernateUtil.getSessionFactory().openSession();
@@ -83,13 +93,15 @@ public class UserDaoImplementation implements UserDaoRepository {
 			else
 				flag = 2;
 		}
+		session.close();
 		return flag;
 	}
 	
+	// TO GET USER BY EMAILID.
 	@Override
 	public List<UserEntity> getUser(String emailid) {
 		
-		int flag=0;
+		log.info("Inside GET USER BY EMAILID DAO");
 		List<UserEntity> list = new ArrayList<UserEntity>();
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		session.beginTransaction();
@@ -97,11 +109,15 @@ public class UserDaoImplementation implements UserDaoRepository {
 		query.setParameter("email",emailid);  
 		list = query.list();
 		session.getTransaction().commit();
+		session.close();
 		return list;
 	}
 	
+	//TO UPDATE USER BY EMAILID.
 	@Override
 	public int updateUser(User u) {
+		
+		log.info("Inside UPDATE USER DAO");
 		Session session=HibernateUtil.getSessionFactory().openSession();
 		session.beginTransaction(); 
 		Query q=session.getNamedQuery("updateuser");
@@ -118,9 +134,11 @@ public class UserDaoImplementation implements UserDaoRepository {
 		return status;
 	}
 
+	// TO DELETE EMPLOYEE BY ID.
 	@Override
 	public int deleteUser(String email) {
 		
+		log.info("Inside DELETE USER DAO");
 		Session session=HibernateUtil.getSessionFactory().openSession();
 		session.beginTransaction(); 
 		Query query=session.createQuery("delete from UserEntity where emailid=:id");  
@@ -131,20 +149,26 @@ public class UserDaoImplementation implements UserDaoRepository {
 		return result;
 	}
 
+	// TO GET ALL USER.
 	@Override
 	public List<UserEntity> getAllUser() {
 		
+		log.info("Inside GET ALL USER DAO");
 		List<UserEntity> list = new ArrayList<UserEntity>();
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		session.beginTransaction();
 		Query query = session.getNamedQuery("username");
 		list = query.list();
 		session.getTransaction().commit();
+		session.close();
 		return list;
 	}
+	
+	// TO UPDATE LOGIN BY EMAILID. FORGET PASSWORD
 	@Override
 	public int updateLogin(String email, String pass) {
 		
+		log.info("Inside UPDATE LOGIN DAO");
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		session.beginTransaction();
 		Query q=session.getNamedQuery("updatelogin");
@@ -156,4 +180,5 @@ public class UserDaoImplementation implements UserDaoRepository {
 		System.out.println(status);
 		return status;
 	}
+	
 }

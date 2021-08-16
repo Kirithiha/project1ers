@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.revature.ers.dto.Designation;
 import com.revature.ers.service.implementation.AdminServiceImplementation;
 
@@ -15,6 +17,8 @@ import com.revature.ers.service.implementation.AdminServiceImplementation;
  * Servlet implementation class AddDesignation
  */
 public class AddDesignation extends HttpServlet {
+	
+	Logger log = Logger.getLogger("AddDesignation.class");
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -27,6 +31,8 @@ public class AddDesignation extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		log.info("Inside ADD DESIGNATION SERVLET");
 		PrintWriter out = response.getWriter();
 		String name = request.getParameter("designame");
 		Designation d = new Designation();

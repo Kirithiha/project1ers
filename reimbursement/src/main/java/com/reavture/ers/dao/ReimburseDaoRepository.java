@@ -9,11 +9,11 @@ public interface ReimburseDaoRepository {
 
 	public int addReimburse(Reimburse re);
 	public int update(String Status, String id);
-	public int delete(String emailid);
 	public List<ReimburseEntity> getReimburseEntity(String email);
 	public List<ReimburseEntity> getAll();
 	public List<ReimburseEntity> getReimburseEntityById(String id);
 	public List<ReimburseEntity> approve();
 	public List<ReimburseEntity> pending();
 	public List<ReimburseEntity> approveById(String email);
+	public List<ReimburseEntity> pendingById(String email);
 }

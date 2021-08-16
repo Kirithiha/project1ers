@@ -42,7 +42,7 @@
 	                        <div class="sign-up-form">
 	                        		<div class="group">
 	                            	 <label for="usr" class="label">User Name</label> 
-	                            	 <input id="usr" type="text" class="input" name="usr"  placeholder="Enter your User name" required> 
+	                            	 <input id="usr" type="text" class="input" name="usr"  placeholder="Enter your User name" pattern="[A-Za-z]{1,}" title="enter only alphabets"required> 
 	                           	</div>
 	                            <div class="group">
 	                            	 <label for="user" class="label">EmailId</label> 
